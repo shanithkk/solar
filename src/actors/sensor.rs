@@ -42,7 +42,10 @@ async fn sensor_proc(server_id: &OwnedIdentity, data: &mut SliceDeque<u64>) -> R
         None
     };
 
-    let mem_available = procfs::Meminfo::new()?.mem_available.unwrap();
+    let mem = psutil::memory::virtual_memory()?;
+    // Available memory in bytes
+    let mem_available = mem.available();
+
     if data.len() == 20 {
         data.pop_front();
     }
