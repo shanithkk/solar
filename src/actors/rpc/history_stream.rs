@@ -69,7 +69,7 @@ where
             RpcInput::Network(req_no, rpc::RecvMsg::RpcResponse(_type, res)) => {
                 self.recv_rpc_response(api, ch_broker, *req_no, &res).await
             }
-            RpcInput::Network(req_no, rpc::RecvMsg::CancelStreamRespose()) => {
+            RpcInput::Network(req_no, rpc::RecvMsg::CancelStreamResponse()) => {
                 self.recv_cancelstream(api, *req_no).await
             }
             RpcInput::Network(req_no, rpc::RecvMsg::ErrorResponse(err)) => {

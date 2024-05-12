@@ -46,7 +46,7 @@ async fn process_broadcast(server_id: &OwnedIdentity, buff: &[u8]) -> Result<()>
             server_id.clone(),
             super::peer::Connect::TcpServer {
                 server,
-                port,
+                port: port.into(),
                 peer_pk,
             },
         ));
